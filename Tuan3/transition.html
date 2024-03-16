@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+        }
+        .box { 
+            width: 60px;
+            height: 60px;
+            background: url('public/img/sidemenu-icons.png');
+            background-color: #fff;
+            position: relative;
+        }
+        .box1 {
+           
+            background-position: 0 -0px;
+ 
+        }
+
+        .box2 {
+            background-position: 0 -120px;
+
+        }
+
+        .box2:hover {
+            width: 60px;
+            height: 60px;
+            background-position: 0 -180px;
+
+
+        }
+        .box3:hover {
+            background-position: 0 -300px;
+        }
+
+        .box4:hover {
+            background-position: 0 -420px;
+        }
+
+        .box5:hover {
+            background-position: 0 -540px;
+        }
+
+        .box3 {
+            background-position: 0 -240px;
+        }
+
+        .box4 {
+            background-position: 0 -360px;
+        }
+
+        .box5 {
+            background-position: 0 -480px;
+
+        }
+
+        .container {
+            display: block;
+            /* background: #bbc4ba; */
+            position: fixed;
+            right: 0;
+            top: 50px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            
+        }
+
+        .box1:hover {
+            background-position: 0 -60px;
+            
+        }
+
+        .box1::after, .box2::after , .box3::after
+        , .box4::after, .box5::after{
+            content: 'Showcase';
+            /* width: 60px; */
+            height: 60px;
+            padding: 0px 10px;
+            background: #000;
+            border-radius: 10px;
+            color: #fff;
+            position: absolute;
+            top: 0;
+            right: -60px;
+            line-height: 60px;
+            z-index: -2;
+            transition: all .5s;
+            text-align: center;
+        }
+        .box2::after{
+            content: 'Blog';
+        }
+        .box3::after{
+            content: 'Question';
+        }
+        .box4::after{
+            content: 'Help';
+        }
+        .box5::after{
+            content: 'Contact';
+        }
+        .box1:hover::after,.box2:hover::after,.box3:hover::after
+        ,.box4:hover::after,.box5:hover::after{
+            right: 60px;
+        }
+        ul {
+            padding-left: 0px;
+        }
+
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <ul>
+            <li class="box box1"></li>
+            <li class="box box2"></li>
+            <li class="box box3"></li>
+            <li class="box box4"></li>
+            <li class="box box5"></li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

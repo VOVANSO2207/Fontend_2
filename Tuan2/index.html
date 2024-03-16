@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* overflow: hidden; */
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .addSnow {
+
+            margin-top: 30px;
+            padding: 15px 15px;
+        }
+
+        .container {
+            background: url('snow.jpg') no-repeat center center;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            color: white;
+            font-size: 50px;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .snow::before {
+            content: "*";
+            font-size: 30px;
+        }
+        .snow {
+            color: #ffffff;
+            position: absolute;
+            animation: snowFail 10s ease-in-out;
+            z-index: 2;
+        }
+        
+        @keyframes snowFail {
+            0% {
+                opacity: 0;
+                top: 0;
+                transform: translateX(-25px);
+            }
+
+            10% {
+                opacity: 0;
+                transform: translateX(25px);
+
+            }
+
+            20% {
+                transform: translateX(-25px);
+
+            }
+
+            30% {
+                transform: translateX(25px);
+
+            }
+
+            40% {
+                opacity: 5;
+                transform: translateX(-25px);
+            }
+
+            60% {
+                opacity: .7;
+                transform: translateX(25px);
+                transform: scale(0.5);
+            }
+
+            70% {
+                transform: translateX(-25px);
+            }
+
+            80% {
+                transform: translateX(25px);
+            }
+
+            90% {
+                opacity: 1;
+
+            }
+
+            100% {
+                opacity: 0;
+                top: 100vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">́́*
+        <button class="addSnow" onclick="createSnow()">Add Snow</button>
+
+    </div>
+    <script>
+       const addSnowButton = document.querySelector(".addSnow");
+        const container = document.querySelector(".container");
+
+        function createSnow() {
+            const snow = document.createElement("span");
+            snow.className = "snow";
+            const minSize = 5;
+            const maxSize = 10;
+            let snowSize = Math.random() * (maxSize - minSize) + minSize;
+            let blurValue = Math.random() * 5;
+            let duration = Math.random() * 10 + 5;
+            let fontSize=Math.random() * 4;
+            snow.style.width = snowSize + "px";
+            snow.style.height = snowSize + "px";
+            snow.style.right = Math.random() * 100 + "%";
+            snow.style.filter = `blur(${blurValue}px)`;
+            snow.style.animation = `snowFail ${duration}s ease-in-out`;
+            snow.style.fontSize= `${snowSize}px"`;
+            container.appendChild(snow);
+
+            setTimeout(() => {
+                snow.remove();
+                addSnowButton.removeEventListener("click", createSnow);
+            }, duration * 1000); 
+        }
+
+        addSnowButton.addEventListener("click", createSnow);
+
+
+    </script>
+</body>
+
+</html>

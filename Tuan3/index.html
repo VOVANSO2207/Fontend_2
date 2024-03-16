@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: rgb(20, 20, 206);
+           
+          
+        }
+
+        .btn-addtocart {
+            background-color: orange;
+            color: white;
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 20px;
+            width: 100px;
+            height: 20px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden; 
+            text-align: center;
+            cursor: pointer;
+            
+        }
+
+        .btn-addtocart:hover::before,
+        .btn-addtocart:hover::after {
+            animation: pulse 2s linear infinite;
+            
+          
+        }
+        .btn-addtocart::before
+        ,.btn-addtocart::after{
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            border-radius: 50%;
+            top: calc(50% - 30px);
+            left: calc(50% - 30px);
+            /* transform: translate(-50%,-50%); */
+            /* inset: 0; */
+            opacity: 0;
+            pointer-events: none;
+        }
+      
+        .btn-addtocart:hover::after {
+            animation-delay: 0.4s; 
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+           
+            100% {
+                transform: scale(1.1);
+                opacity: 0.1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil a error ab, atque ipsam dolores eos. Ratione reiciendis voluptas sequi facilis pariatur eum nihil tenetur velit? Impedit molestiae laboriosam quasi?</p>
+        <!-- <div class="btn-addtocart">Add To Cart</div> -->
+        <a href="#" class="btn-addtocart">Add To Cart</a>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus rerum, quas aspernatur accusamus eaque veritatis eligendi nisi nobis ad! Dolorem, voluptatem quisquam! Exercitationem praesentium eius tenetur ex quisquam corporis minus!</p>
+</body>
+</html>

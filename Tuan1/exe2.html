@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Half-Circle Bar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .half-circle-bar {
+            width: 600px;
+            height: 60px;
+            background-color: green;
+            border-radius: 50px;
+            position: relative;
+            animation: rotateBar 5s  linear infinite alternate;
+                /* animation-delay: 2s; */
+                
+        }
+        
+        .circle {
+            position: absolute;
+            width: 60px;
+            left: 0;    
+            height: 60px;
+            background-color: blue;
+            background-image: linear-gradient(45deg,#ff9a9e, #fad0c4, #fad0c4);
+            border-radius: 50%;
+            animation: rollCircle 2.5s linear infinite alternate;
+            /* animation-delay: 1s; */
+            
+        }
+        .half-circle-bar:hover{
+            background-color: aqua;
+            width: 600px;
+            height: 300px;
+
+        }
+
+        .dot {
+            position: absolute;
+            left: 50%;
+            background: #fff;
+            opacity: 0.9;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            animation: roteDot 8s linear infinite;
+        }
+
+        @keyframes roteDot {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotateBar {
+            0% {
+                transform: rotate(-45deg);
+            }
+            /* 25% {
+                transform: rotate(45deg);
+            } */
+            50% {
+                transform: rotate(45deg);
+            }
+            /* 75% {
+                transform: rotate(-45deg);
+            }  */
+            100% {
+                transform: rotate(-45deg);
+            }
+        }
+
+        @keyframes rollCircle {
+            0% {
+                left: 0%;
+                /* right: 0%; */
+                transform: rotate(0deg);
+            }
+            /* 25% {
+                left: 25%;
+                transform: rotate(45deg);
+            } */
+            50% {
+                left: 50%;
+                transform: rotate(180deg);
+            }
+            /* 75% {
+                left: 75%;
+                transform: rotate(135deg);
+            } */
+            100% {
+                 left: 90%;
+                 /* left: 580px; */
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="half-circle-bar">
+        <div class="circle">
+            <div class="dot"></div>
+        </div>
+    </div>
+</body>
+</html>
